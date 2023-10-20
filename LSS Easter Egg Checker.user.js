@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LSS Easter Egg Checker
 // @namespace    www.leitstellenspiel.de
-// @version      1.2
+// @version      1.3
 // @description  Prüfe auf Ostereier und spiele entsprechende Sounds ab
 // @author       MissSobol
 // @match        https://www.leitstellenspiel.de/missions/*
@@ -30,7 +30,7 @@
         if (audioSrc) {
             var audio = new Audio(audioSrc);
 
-            // Zufällige Geschwindigkeit zwischen 0,5 und 1,5 festlegen
+            // Zufällige Geschwindigkeit zwischen 0,9 und 1,1 festlegen
             audio.playbackRate = 0.5 + Math.random();
 
             // Warte auf das 'canplaythrough'-Event, um sicherzustellen, dass der Sound vollständig geladen ist
@@ -41,7 +41,7 @@
 
                 // Erstelle ein großes rotes Ausrufezeichen und füge es zum Body hinzu
                 var exclamationMark = document.createElement('div');
-                exclamationMark.innerHTML = '<span style="font-size: 1000px; color: red;">!!!</span>';
+                exclamationMark.innerHTML = '<span style="font-size: 600px;">🎃</span>';
                 exclamationMark.style.position = 'fixed';
                 exclamationMark.style.top = '0';
                 exclamationMark.style.left = '0';
