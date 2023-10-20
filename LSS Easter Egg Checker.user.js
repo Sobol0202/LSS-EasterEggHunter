@@ -34,7 +34,7 @@
         if (audioSrc) {
             var audio = new Audio(audioSrc);
 
-            // Zufällige Geschwindigkeit zwischen 0,9 und 1,1 festlegen
+            // Zufällige Geschwindigkeit zwischen 0,5 und 1,5 festlegen
             audio.playbackRate = 0.5 + Math.random();
 
             // Warte auf das 'canplaythrough'-Event, um sicherzustellen, dass der Sound vollständig geladen ist
