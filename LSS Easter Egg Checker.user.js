@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         LSS Easter Egg Checker
 // @namespace    www.leitstellenspiel.de
-// @version      1.3
-// @description  Prüfe auf Ostereier und spiele entsprechende Sounds ab
+// @version      1.4
+// @description  Prüfe auf Ostereier und zeige das entsprechende Symbol im Easter-Egg-Element kurz in Groß an
 // @author       MissSobol
 // @match        https://www.leitstellenspiel.de/missions/*
 // @grant        none
@@ -17,14 +17,18 @@
     if (easterEggLink) {
         var imageSrc = easterEggLink.querySelector('img').getAttribute('src');
         var audioSrc = '';
+        var symbol = '';
 
         // Prüfe, ob der Bild-Quelltext das Wort "Pumpkin" enthält
         if (imageSrc.includes('pumpkin')) {
             audioSrc = 'https://github.com/Sobol0202/LSS-EasterEggHunter/raw/main/boo-and-laugh-7060.mp3'; // URL zum Sound für Pumpkin
+            symbol = '🎃';
         } else if (imageSrc.includes('Easter')) {
             audioSrc = 'https://github.com/Sobol0202/LSS-EasterEggHunter/raw/main/jump-15984.mp3'; // URL zum Sound für Easter
+            symbol = '🐰';
         } else if (imageSrc.includes('Christmas')) {
             audioSrc = 'https://github.com/Sobol0202/LSS-EasterEggHunter/raw/main/hohoho-36506.mp3'; // URL zum Sound für Christmas
+            symbol = '🎁';
         }
 
         if (audioSrc) {
@@ -39,22 +43,23 @@
                 // Spiele den Sound ab
                 audio.play();
 
-                // Erstelle ein großes rotes Ausrufezeichen und füge es zum Body hinzu
-                var exclamationMark = document.createElement('div');
-                exclamationMark.innerHTML = '<span style="font-size: 600px;">🎃</span>';
-                exclamationMark.style.position = 'fixed';
-                exclamationMark.style.top = '0';
-                exclamationMark.style.left = '0';
-                exclamationMark.style.width = '100%';
-                exclamationMark.style.height = '100%';
-                exclamationMark.style.display = 'flex';
-                exclamationMark.style.justifyContent = 'center';
-                exclamationMark.style.alignItems = 'center';
-                document.body.appendChild(exclamationMark);
+                // Zeige das Symbol für 2 Sekunden an
+                var symbolElement = document.createElement('div');
+                symbolElement.innerHTML = '<span style="font-size: 600px;">' + symbol + '</span>';
+                symbolElement.style.position = 'fixed';
+                symbolElement.style.top = '0';
+                symbolElement.style.left = '0';
+                symbolElement.style.width = '100%';
+                symbolElement.style.height = '100%';
+                symbolElement.style.display = 'flex';
+                symbolElement.style.justifyContent = 'center';
+                symbolElement.style.alignItems = 'center';
+                symbolElement.style.zIndex = '999999';
+                document.body.appendChild(symbolElement);
 
-                // Entferne das Ausrufezeichen nach 2 Sekunden
+                // Schließe das Symbol nach 2 Sekunden
                 setTimeout(function() {
-                    exclamationMark.remove();
+                    symbolElement.remove();
                 }, 2000);
             });
         }
