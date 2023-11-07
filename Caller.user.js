@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Telefonanruf-Simulation
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Simuliert eingehende Telefonanrufe für das Leitstellenspiel
-// @author       MissSobol
+// @author       You
 // @match        https://www.leitstellenspiel.de/*
 // @grant        none
 // ==/UserScript==
@@ -64,6 +64,7 @@
             // Den Button entfernen, nachdem der Anruf angenommen wurde
             document.body.removeChild(acceptCallButton);
             incomingCallActive = false;
+            audio.pause();
         };
 
         // Füge den Button zum Dokument hinzu
