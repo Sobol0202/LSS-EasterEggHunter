@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LSS Easter Egg Checker
 // @namespace    www.leitstellenspiel.de
-// @version      1.4
+// @version      1.5
 // @description  Prüfe auf Ostereier und zeige das entsprechende Symbol im Easter-Egg-Element kurz in Groß an
 // @author       MissSobol
 // @match        https://www.leitstellenspiel.de/missions/*
@@ -26,9 +26,9 @@
         } else if (imageSrc.includes('Easter')) {
             audioSrc = 'https://github.com/Sobol0202/LSS-EasterEggHunter/raw/main/jump-15984.mp3'; // URL zum Sound für Easter
             symbol = '🐰';
-        } else if (imageSrc.includes('Christmas')) {
+        } else if (imageSrc.includes('Santa')) {
             audioSrc = 'https://github.com/Sobol0202/LSS-EasterEggHunter/raw/main/hohoho-36506.mp3'; // URL zum Sound für Christmas
-            symbol = '🎁';
+            symbol = '🎅';
         }
 
         if (audioSrc) {
