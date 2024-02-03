@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LSS Easter Egg Checker
 // @namespace    www.leitstellenspiel.de
-// @version      1.8
+// @version      1.9
 // @description  Prüfe auf Ostereier und zeige das entsprechende Symbol im Easter-Egg-Element kurz in Groß an
 // @author       MissSobol
 // @match        https://www.leitstellenspiel.de/missions/*
@@ -77,7 +77,7 @@
             var alertElements = document.querySelectorAll('.alert.fade.in.alert-success');
             alertElements.forEach(function(alertElement) {
                 // Überprüfe den Text des Alert-Elements
-                if (alertElement.textContent.includes(' gefunden! Herzlichen Glückwunsch!')) {
+                if (alertElement.textContent.includes(' gefunden!')) {
                     // Wenn der spezifische Text gefunden wurde, entferne das Alert-Element
                     alertElement.remove();
                 }
