@@ -26,7 +26,7 @@
         if (imageSrc.includes('pumpkin')) {
             audioSrc = 'https://github.com/Sobol0202/LSS-EasterEggHunter/raw/main/boo-and-laugh-7060.mp3'; // URL zum Sound für Pumpkin
             symbol = '🎃';
-        } else if (imageSrc.includes('Easter')) {
+        } else if (imageSrc.includes('oster')) {
             audioSrc = 'https://github.com/Sobol0202/LSS-EasterEggHunter/raw/main/jump-15984.mp3'; // URL zum Sound für Easter
             symbol = '🐰';
         } else if (imageSrc.includes('heart')) {
